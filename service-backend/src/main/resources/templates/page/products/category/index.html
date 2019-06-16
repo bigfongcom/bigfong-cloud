@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>分类管理</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <div th:replace="common/css"></div>
+    <style>
+        .name-level-1{margin-left: 0px;}
+        .name-level-2{margin-left: 30px;}
+        .name-level-3{margin-left: 60px;}
+        .name-level-4{margin-left: 90px;}
+        .name-level-5{margin-left: 120px;}
+    </style>
+</head>
+<body>
+<!-- vue入口 -->
+<div id="app">
+    <div :class="'app-wrapper' + sidebarFlag">
+
+        <!-- aside -->
+        <div th:replace="common/side"></div>
+
+        <!-- container -->
+        <el-container class="main-container">
+            <!-- header -->
+            <div style="background-color: rgb(84, 92, 100);" th:replace="common/header"></div>
+
+            <!-- main -->
+            <el-main class="app-main">
+                <el-card>
+                    <!-- 功能按钮 -->
+                    <el-row :gutter="10" type="flex" justify="space-between">
+                        <el-col :xs="24" :sm="12" :lg="6" :span="5">
+                            <el-input size="small" v-model="searchEntity.name" @keyup.enter.native="search(pageConf.pageCode, pageConf.pageSize)" placeholder="请输入角色名称查询">
+                                <i slot="prefix" class="el-input__icon el-icon-search"></i>
+                                <el-button @click="search(pageConf.pageCode, pageConf.pageSize)" slot="append" size="small" icon="el-icon-search"></el-button>
+                            </el-input>
+                        </el-col>
+                        <el-col :xs="24" :sm="12" :lg="6" :span="6">
+                            <el-button type="primary" plain size="small" @click="search(pageConf.pageCode, pageConf.pageSize)" icon="el-icon-refresh"></el-button>
+                            <el-button type="primary" plain size="small" @click="handleExcel()" icon="el-icon-printer"></el-button>
+                            <el-button type="primary" plain size="small" @click="handleDelete()" icon="el-icon-delete"></el-button>
+                            <el-button type="primary" plain size="small" @click="handleSave()" icon="el-icon-plus"></el-button>
+                        </el-col>
+                    </el-row>
+                    <br/>
+                    <!-- 列表 -->
+                    <el-table :data="categoryTree" v-loading="loading" element-loading-text="拼命加载中" element-loading-spinner="el-icon-loading" @selection-change="selectChange" ref="table" stripe size="mini" border tooltip-effect="dark" style="width: 100%">
+                        <el-table-column prop="id" label="分类id" width="100"></el-table-column>
+                        <el-table-column label="名称" width="400" >
+                            <template slot-scope="scope">
+                                <span  :class="'name-level-' + scope.row.level">{{ scope.row.name }}</span>
+                            </template>
+                        </el-table-column>
+                        <el-table-column prop="level" label="层级" width="80"></el-table-column>
+
+                        <el-table-column prop="mobileName" label="手机显示名称" width="230"></el-table-column>
+                        <el-table-column  label="是否推荐" width="180">
+                            <template slot-scope="scope">
+                                <el-tag v-if="scope.row.isHot ==1" type="success">是</el-tag>
+                                <el-tag v-else type="warning">否</el-tag>
+                            </template>
+                        </el-table-column>
+                        <el-table-column  label="是否显示" width="180">
+                            <template slot-scope="scope">
+                                <el-tag v-if="scope.row.isShow == 1" type="success">是</el-tag>
+                                <el-tag v-else type="warning">否</el-tag>
+                            </template>
+                        </el-table-column>
+
+                        <el-table-column prop="catGroup" label="分组" width="80"></el-table-column>
+                        <el-table-column prop="sortOrder" label="排序" width="80"></el-table-column>
+                        <el-table-column label="操作">
+                            <template slot-scope="scope">
+                                <el-button @click="handleDelete(scope.row.id)" icon="el-icon-delete" size="mini" type="danger"></el-button>
+                                <el-button @click="handleSave(scope.row.id)" size="mini" icon="el-icon-edit" type="warning"></el-button>
+                            </template>
+                        </el-table-column>
+                    </el-table>
+                    <br/>
+
+                </el-card>
+            </el-main>
+        </el-container>
+    </div>
+
+    <!-- 保存-模态框 -->
+    <div th:replace="page/system/menu/save"></div>
+</div>
+<div th:replace="common/js"></div>
+<script type="text/javascript" th:src="@{/js/products/category.js}"></script>
+
+</body>
+</html>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bigfong.cloud.serviceproduct.mapper.CategoryMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.bigfong.cloud.cloudcommon.product.Category">
+        <id column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="mobile_name" property="mobileName"/>
+        <result column="parent_id" property="parentId"/>
+        <result column="parent_id_path" property="parentIdPath"/>
+        <result column="level" property="level"/>
+        <result column="image" property="image"/>
+        <result column="is_show" property="isShow"/>
+        <result column="is_hot" property="isHot"/>
+        <result column="cat_group" property="catGroup"/>
+        <result column="sort_order" property="sortOrder"/>
+        <result column="commission_rate" property="commissionRate"/>
+    </resultMap>
+
+    <!-- sql列-->
+    <sql id="columns">
+    id,
+    `name`,
+	mobile_name,
+	parent_id,
+	parent_id_path,
+	`level`,
+	image,
+	is_show,
+	is_hot,
+	cat_group,
+	sort_order,
+	commission_rate
+    </sql>
+
+    <select id="selectAll" resultMap="BaseResultMap">
+    SELECT
+	<include refid="columns"></include>
+    FROM
+	tb_goods_category
+	order by parent_id , sort_order  asc
+    </select>
+
+</mapper>

@@ -1,0 +1,72 @@
+server:
+  port: 8907
+
+#eureka:
+#  instance:
+#    prefer-ip-address: true
+#    instance-id: ${spring.cloud.client.ip-address}:${server.port}
+#  client:
+#    service-url:
+#      defaultZone: http://localhost:8761/eureka/
+
+spring:
+  aop:
+    proxy-target-class: true
+    auto: true
+  servlet:
+    multipart:
+      max-file-size: 3MB
+      max-request-size: 3MB
+  feign:
+    hystrix:
+      enabled: true
+  datasource:
+    druid:
+      # 系统基础库
+      basic:
+        driver-class-name: com.mysql.jdbc.Driver
+        url: jdbc:mysql://127.0.0.1:3306/cloud_basic?useUnicode=true&characterEncoding=utf8&allowMultiQueries=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+        username: root
+        password: root
+        initialSize: 5
+        minIdle: 5
+        maxActive: 20
+      # 系统基础库
+      product:
+        driver-class-name: com.mysql.jdbc.Driver
+        url: jdbc:mysql://127.0.0.1:3306/cloud_product?useUnicode=true&characterEncoding=utf8&allowMultiQueries=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+        username: root
+        password: root
+        initialSize: 5
+        minIdle: 5
+        maxActive: 20
+#  data:
+    ## Elasticsearch配置文件（必须）
+    ## 该配置和Elasticsearch的elasticsearch.yml中的配置信息有关
+#    elasticsearch:
+#      cluster-name: my-application
+#      cluster-nodes: 127.0.0.1:9300
+
+mybatis-plus:
+  mapper-locations: classpath:/mapper/**/*.xml
+  typeAliasesPackage: com.bigfong.cloud.serviceelasticsearch.entity
+  check-config-location: true
+  global-config:
+    id-type: 0
+    field-strategy: 2
+    db-column-underline: true
+    refresh-mapper: true
+  configuration:
+    map-underscore-to-camel-case: true
+    cache-enabled: true
+    #log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+# Elasticsearch
+# 9200端口是用来让HTTP REST API来访问ElasticSearch，而9300端口是传输层监听的默认端口
+elasticsearch:
+  ip: 127.0.0.1
+  port: 9300
+  pool: 5
+  #注意cluster.name需要与config/elasticsearch.yml中的cluster.name一致
+  cluster:
+    name: my-application

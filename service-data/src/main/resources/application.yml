@@ -1,0 +1,71 @@
+server:
+  port: 8908
+
+eureka:
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+
+spring:
+  aop:
+    proxy-target-class: true
+    auto: true
+  servlet:
+    multipart:
+      max-file-size: 3MB
+      max-request-size: 3MB
+  feign:
+    hystrix:
+      enabled: true
+  datasource:
+    druid:
+      # 系统基础库
+      basic:
+        driver-class-name: com.mysql.jdbc.Driver
+        url: jdbc:mysql://127.0.0.1:3306/cloud_demo_data?useUnicode=true&characterEncoding=utf8&allowMultiQueries=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&zeroDateTimeBehavior=convertToNull
+        username: root
+        password: root
+        initialSize: 5
+        minIdle: 5
+        maxActive: 20
+      # 产品
+      product1:
+        driver-class-name: com.mysql.jdbc.Driver
+        url: jdbc:mysql://127.0.0.1:3306/yb_datacenter?useUnicode=true&characterEncoding=utf8&allowMultiQueries=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&zeroDateTimeBehavior=convertToNull
+        username: root
+        password: root
+        initialSize: 5
+        minIdle: 5
+        maxActive: 20
+      product:
+        driver-class-name: com.mysql.jdbc.Driver
+        url: jdbc:mysql://127.0.0.1:3306/yibai_product?useUnicode=true&characterEncoding=utf8&allowMultiQueries=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&zeroDateTimeBehavior=convertToNull
+        username: root
+        password: root
+        initialSize: 5
+        minIdle: 5
+        maxActive: 20
+
+mybatis-plus:
+  mapper-locations: classpath:/mapper/*.xml
+  typeAliasesPackage: com.bigfong.cloud.servicedata.entity
+  check-config-location: true
+  global-config:
+    id-type: 0
+    field-strategy: 2
+    db-column-underline: true
+    refresh-mapper: true
+  configuration:
+    map-underscore-to-camel-case: true
+    cache-enabled: true
+    #log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+ribbon:
+  ReadTimeout: 10000
+  ConnectTimeout: 9000
+feign:
+  hystrix:
+    enabled: true

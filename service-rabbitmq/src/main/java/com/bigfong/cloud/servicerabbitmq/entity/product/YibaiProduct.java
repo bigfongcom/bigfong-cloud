@@ -1,0 +1,1796 @@
+package com.bigfong.cloud.servicerabbitmq.entity.product;
+
+import java.math.BigDecimal;
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
+import java.time.LocalDateTime;
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.extension.activerecord.Model;
+
+/**
+ * <p>
+ * 产品表
+ * </p>
+ */
+public class YibaiProduct extends Model<YibaiProduct> {
+
+    private static final long serialVersionUID = 1L;
+
+    /**
+     * 流水ID
+     */
+    @TableId(value = "id", type = IdType.AUTO)
+    private Integer id;
+
+    @TableField("sku")
+    private String sku;
+
+    /**
+     * 产品类目ID
+     */
+    @TableField("product_category_id")
+    private Integer product_category_id;
+
+    /**
+     * 产品线ID
+     */
+    @TableField("product_linelist_id")
+    private Integer product_linelist_id;
+
+    /**
+     * 产品品牌id
+     */
+    @TableField("product_brand_id")
+    private Integer product_brand_id;
+
+    /**
+     * 成本
+     */
+    @TableField("product_cost")
+    private Float product_cost;
+
+    /**
+     * 产品最后采购价格
+     */
+    @TableField("last_price")
+    private Float last_price;
+
+    /**
+     * 最后采购供应商(入库时更新)
+     */
+    @TableField("last_provider_id")
+    private Integer last_provider_id;
+
+    /**
+     * 供应商类型(1是普通供应商，2为分销商)
+     */
+    @TableField("provider_type")
+    private Integer provider_type;
+
+    /**
+     * 货币单位
+     */
+    @TableField("currency")
+    private String currency;
+
+    /**
+     * 产品状态
+     */
+    @TableField("product_status")
+    private Integer product_status;
+
+    /**
+     * 产品类型
+     */
+    @TableField("product_type")
+    private Integer product_type;
+
+    /**
+     * 产品重量
+     */
+    @TableField("product_weight")
+    private Float product_weight;
+
+    /**
+     * 产品长度
+     */
+    @TableField("product_length")
+    private Float product_length;
+
+    /**
+     * 产品宽度
+     */
+    @TableField("product_width")
+    private Float product_width;
+
+    /**
+     * 产品高度
+     */
+    @TableField("product_height")
+    private Float product_height;
+
+    /**
+     * 捆绑销售CODE
+     */
+    @TableField("product_combine_code")
+    private String product_combine_code;
+
+    /**
+     * 捆绑销售的数量(所有sku数量之和),生成待采购用
+     */
+    @TableField("product_combine_num")
+    private Integer product_combine_num;
+
+    /**
+     * 产品绑定的sku
+     */
+    @TableField("product_bind_code")
+    private String product_bind_code;
+
+    /**
+     * 产品系列ID
+     */
+    @TableField("product_line_id")
+    private Integer product_line_id;
+
+    /**
+     * 关键词
+     */
+    @TableField("keywords")
+    private String keywords;
+
+    /**
+     * 品检内容
+     */
+    @TableField("measure_info")
+    private String measure_info;
+
+    /**
+     * 是否带附件
+     */
+    @TableField("product_is_attach")
+    private Integer product_is_attach;
+
+    /**
+     * 是否备货
+     */
+    @TableField("product_is_bak")
+    private Integer product_is_bak;
+
+    /**
+     * 备货类型
+     */
+    @TableField("product_bak_type")
+    private Integer product_bak_type;
+
+    /**
+     * 采购交期[到仓]
+     */
+    @TableField("product_prearrival_days")
+    private Integer product_prearrival_days;
+
+    /**
+     * 采购周期
+     */
+    @TableField("product_bak_days")
+    private Integer product_bak_days;
+
+    /**
+     * 原料类型：1包材 2包装
+     */
+    @TableField("original_material_type_id")
+    private Integer original_material_type_id;
+
+    /**
+     * 包材[sku]
+     */
+    @TableField("product_pack_code")
+    private String product_pack_code;
+
+    /**
+     * 包装[sku]
+     */
+    @TableField("product_package_code")
+    private String product_package_code;
+
+    /**
+     * 包装材料代码
+     */
+    @TableField("product_package_material_code")
+    private String product_package_material_code;
+
+    /**
+     * 产品指定包裹的最大数量
+     */
+    @TableField("product_package_max_nums")
+    private Integer product_package_max_nums;
+
+    /**
+     * 是否带库位
+     */
+    @TableField("product_is_storage")
+    private Integer product_is_storage;
+
+    /**
+     * 是否带原包装
+     */
+    @TableField("product_original_package")
+    private Integer product_original_package;
+
+    /**
+     * 是否新品
+     */
+    @TableField("product_is_new")
+    private Integer product_is_new;
+
+    /**
+     * 0: 普通 1: 多属性单品 2: 多属性组合
+     */
+    @TableField("product_is_multi")
+    private Integer product_is_multi;
+
+    @TableField("provider_level_id")
+    private Integer provider_level_id;
+
+    /**
+     * 创建人
+     */
+    @TableField("create_user_id")
+    private String create_user_id;
+
+    @TableField("create_user")
+    private String create_user;
+
+    /**
+     * 修改人
+     */
+    @TableField("modify_user_id")
+    private String modify_user_id;
+
+    /**
+     * 创建时间
+     */
+    @TableField("create_time")
+    private LocalDateTime create_time;
+
+    /**
+     * 修改时间
+     */
+    @TableField("modify_time")
+    private LocalDateTime modify_time;
+
+    /**
+     * 中文链接
+     */
+    @TableField("product_cn_link")
+    private String product_cn_link;
+
+    /**
+     * 英文链接
+     */
+    @TableField("product_en_link")
+    private String product_en_link;
+
+    /**
+     * 生成sku的标志
+     */
+    @TableField("sku_mark")
+    private Integer sku_mark;
+
+    /**
+     * 来货包装方式
+     */
+    @TableField("product_to_way_package")
+    private String product_to_way_package;
+
+    /**
+     * 停售原因
+     */
+    @TableField("stock_reason")
+    private String stock_reason;
+
+    /**
+     * 产品贴标加工
+     */
+    @TableField("product_label_proces")
+    private String product_label_proces;
+
+    /**
+     * 包装产品长度
+     */
+    @TableField("pack_product_length")
+    private Float pack_product_length;
+
+    /**
+     * 包装产品宽度
+     */
+    @TableField("pack_product_width")
+    private Float pack_product_width;
+
+    /**
+     * 包装产品高度
+     */
+    @TableField("pack_product_height")
+    private Float pack_product_height;
+
+    /**
+     * 毛重
+     */
+    @TableField("gross_product_weight")
+    private Float gross_product_weight;
+
+    /**
+     * 是否推送到 wms 1推送，0未推送
+     */
+    @TableField("is_to_mid")
+    private Integer is_to_mid;
+
+    /**
+     * 最后推送时间
+     */
+    @TableField("to_mid_time")
+    private LocalDateTime to_mid_time;
+
+    /**
+     * 1常规，2快速
+     */
+    @TableField("state_type")
+    private Integer state_type;
+
+    /**
+     * 开发审核时间
+     */
+    @TableField("checked_time")
+    private LocalDateTime checked_time;
+
+    /**
+     * 图片路径
+     */
+    @TableField("uploadimgs")
+    private String uploadimgs;
+
+    /**
+     * 标签
+     */
+    @TableField("label")
+    private String label;
+
+    /**
+     * 买样备注
+     */
+    @TableField("buycomp_note")
+    private String buycomp_note;
+
+    /**
+     * 质检备注
+     */
+    @TableField("quality_note")
+    private String quality_note;
+
+    /**
+     * 热销度，0低，1中，2高
+     */
+    @TableField("hot_rank")
+    private Integer hot_rank;
+
+    /**
+     * 最小采购量
+     */
+    @TableField("min_purchase")
+    private Integer min_purchase;
+
+    /**
+     * 询价人ID
+     */
+    @TableField("inquirer_id")
+    private Integer inquirer_id;
+
+    /**
+     * 采购人ID
+     */
+    @TableField("purchase_id")
+    private Integer purchase_id;
+
+    /**
+     * SKU别名
+     */
+    @TableField("aliases_name")
+    private String aliases_name;
+
+    /**
+     * 是否带说明书, 0否,1是
+     */
+    @TableField("instructions")
+    private Integer instructions;
+
+    /**
+     * 质检标准
+     */
+    @TableField("quality_standard")
+    private String quality_standard;
+
+    /**
+     * 品检标签
+     */
+    @TableField("quality_lable")
+    private Integer quality_lable;
+
+    /**
+     * 质检备注
+     */
+    @TableField("quality_remark")
+    private String quality_remark;
+
+    /**
+     * 图片备注
+     */
+    @TableField("image_remark")
+    private String image_remark;
+
+    /**
+     * 买样类型0购买1免费2借用
+     */
+    @TableField("buy_sample_type")
+    private Integer buy_sample_type;
+
+    /**
+     * 参考价
+     */
+    @TableField("reference_price")
+    private BigDecimal reference_price;
+
+    /**
+     * 配货中文名称（简称）
+     */
+    @TableField("picking_name")
+    private String picking_name;
+
+    @TableField("picking_ename")
+    private String picking_ename;
+
+    /**
+     * 海关编码(HS Code)
+     */
+    @TableField("customs_code")
+    private String customs_code;
+
+    /**
+     * 进口申报英文名
+     */
+    @TableField("declare_ename")
+    private String declare_ename;
+
+    /**
+     * 进口申报中文名
+     */
+    @TableField("declare_cname")
+    private String declare_cname;
+
+    /**
+     * 申报货值
+     */
+    @TableField("declare_price")
+    private BigDecimal declare_price;
+
+    /**
+     * 产品关税税率
+     */
+    @TableField("tariff")
+    private Float tariff;
+
+    /**
+     * 产品出口退税税率
+     */
+    @TableField("tax_rate")
+    private Float tax_rate;
+
+    /**
+     * 平台分配备注
+     */
+    @TableField("onlie_remark")
+    private String onlie_remark;
+
+    /**
+     * 用途（英文）
+     */
+    @TableField("use_en")
+    private String use_en;
+
+    /**
+     * 用途（中文）
+     */
+    @TableField("use_cn")
+    private String use_cn;
+
+    /**
+     * 材质（英文）
+     */
+    @TableField("material_en")
+    private String material_en;
+
+    /**
+     * 材质(中文)
+     */
+    @TableField("material_cn")
+    private String material_cn;
+
+    /**
+     * 物流备注
+     */
+    @TableField("logistics_note")
+    private String logistics_note;
+
+    /**
+     * 开发来源
+     */
+    @TableField("source")
+    private Integer source;
+
+    @TableField("drop_shipping")
+    private Integer drop_shipping;
+
+    @TableField("drop_shipping_sku")
+    private Integer drop_shipping_sku;
+
+    @TableField("product_is_combine")
+    private Integer product_is_combine;
+
+    /**
+     * 4高风险，3中度风险，2可能有风险，1无风险
+     */
+    @TableField("logistics_risk")
+    private Integer logistics_risk;
+
+    /**
+     * 进口海关编码
+     */
+    @TableField("customs_code2")
+    private String customs_code2;
+
+    /**
+     * 申报单位
+     */
+    @TableField("declare_unit")
+    private String declare_unit;
+
+    /**
+     * 出口申报英文名
+     */
+    @TableField("export_ename")
+    private String export_ename;
+
+    /**
+     * 出口申报中文名
+     */
+    @TableField("export_cname")
+    private String export_cname;
+
+    /**
+     * 型号
+     */
+    @TableField("product_model")
+    private String product_model;
+
+    @TableField("brand_name")
+    private String brand_name;
+
+    @TableField("brand_en_name")
+    private String brand_en_name;
+
+    /**
+     * 规格
+     */
+    @TableField("specifications")
+    private String specifications;
+
+    /**
+     * 工作原理
+     */
+    @TableField("product_principle")
+    private String product_principle;
+
+    /**
+     * 是否推送(0未推送1已推送)
+     */
+    @TableField("is_push")
+    private Integer is_push;
+
+    /**
+     * 申报要素
+     */
+    @TableField("declare")
+    private String declare;
+
+    @TableField("whether_to_do_tax_rebates")
+    private String whether_to_do_tax_rebates;
+
+    @TableField("provider_company")
+    private String provider_company;
+
+    /**
+     * 出口型号
+     */
+    @TableField("product_model_out")
+    private String product_model_out;
+
+    /**
+     * 0是不检查,1是检查
+     */
+    @TableField("is_inspection")
+    private Integer is_inspection;
+
+
+    /**
+     * 整箱数量
+     */
+    @TableField("full_container")
+    private Integer full_container;
+
+    /**
+     * 整箱长度
+     */
+    @TableField("full_container_length")
+    private Float full_container_length;
+
+    /**
+     * 整箱宽度
+     */
+    @TableField("full_container_width")
+    private Float full_container_width;
+
+    /**
+     * 整箱高度
+     */
+    @TableField("full_container_height")
+    private Float full_container_height;
+
+    /**
+     * 最新价格
+     */
+    @TableField("new_price")
+    private Float new_price;
+
+
+    /**
+     * 平均运费
+     */
+    @TableField("ship_cost")
+    private Float ship_cost;
+
+    /**
+     * 抽检标准
+     */
+    @TableField("quality_random")
+    private Integer quality_random;
+
+    /**
+     * 允收级别
+     */
+    @TableField("quality_level")
+    private Integer quality_level;
+
+    /**
+     * 包装类型
+     */
+    @TableField("package_types")
+    private Integer package_types;
+
+    /**
+     * 进口申报要素
+     */
+    @TableField("declare_factor")
+    private String declare_factor;
+
+    /**
+     * 进口申报链接
+     */
+    @TableField("declare_link")
+    private String declare_link;
+
+    @TableField("is_priority")
+    private String is_priority;
+
+    /**
+     * (粉末/液体/膏体)含量
+     */
+    @TableField("component")
+    private Float component;
+
+
+    /**
+     * 采购员
+     */
+    @TableField("buyer")
+    private String buyer;
+
+    /**
+     * 发货包装，1快递袋，2气泡袋，3葫芦袋,4气柱袋，5卷芯棒
+     */
+    @TableField("product_package_code_new")
+    private Integer product_package_code_new;
+
+
+    /**
+     * 是否是季节性产品
+     */
+    @TableField("seasonal_product")
+    private Integer seasonal_product;
+
+    /**
+     * 是否是节日性产品
+     */
+    @TableField("holiday_product")
+    private Integer holiday_product;
+
+
+    /**
+     * 是否精品 1是
+     */
+    @TableField("is_boutique")
+    private Integer is_boutique;
+
+    /**
+     * 开票点
+     */
+    @TableField("ticketed_point")
+    private Float ticketed_point;
+
+    /**
+     * 推荐人
+     */
+    @TableField("refere")
+    private Integer refere;
+
+
+    /**
+     * 试卖编辑备注
+     */
+    @TableField("sale_remark")
+    private String sale_remark;
+
+    /**
+     * 折扣率
+     */
+    @TableField("discount_rate")
+    private Integer discount_rate;
+
+    @TableField("product_id")
+    private Integer product_id;
+
+
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getSku() {
+        return sku;
+    }
+
+    public void setSku(String sku) {
+        this.sku = sku;
+    }
+
+    public Integer getProduct_category_id() {
+        return product_category_id;
+    }
+
+    public void setProduct_category_id(Integer product_category_id) {
+        this.product_category_id = product_category_id;
+    }
+
+    public Integer getProduct_linelist_id() {
+        return product_linelist_id;
+    }
+
+    public void setProduct_linelist_id(Integer product_linelist_id) {
+        this.product_linelist_id = product_linelist_id;
+    }
+
+    public Integer getProduct_brand_id() {
+        return product_brand_id;
+    }
+
+    public void setProduct_brand_id(Integer product_brand_id) {
+        this.product_brand_id = product_brand_id;
+    }
+
+    public Float getProduct_cost() {
+        return product_cost;
+    }
+
+    public void setProduct_cost(Float product_cost) {
+        this.product_cost = product_cost;
+    }
+
+    public Float getLast_price() {
+        return last_price;
+    }
+
+    public void setLast_price(Float last_price) {
+        this.last_price = last_price;
+    }
+
+    public Integer getLast_provider_id() {
+        return last_provider_id;
+    }
+
+    public void setLast_provider_id(Integer last_provider_id) {
+        this.last_provider_id = last_provider_id;
+    }
+
+    public Integer getProvider_type() {
+        return provider_type;
+    }
+
+    public void setProvider_type(Integer provider_type) {
+        this.provider_type = provider_type;
+    }
+
+    public String getCurrency() {
+        return currency;
+    }
+
+    public void setCurrency(String currency) {
+        this.currency = currency;
+    }
+
+    public Integer getProduct_status() {
+        return product_status;
+    }
+
+    public void setProduct_status(Integer product_status) {
+        this.product_status = product_status;
+    }
+
+    public Integer getProduct_type() {
+        return product_type;
+    }
+
+    public void setProduct_type(Integer product_type) {
+        this.product_type = product_type;
+    }
+
+    public Float getProduct_weight() {
+        return product_weight;
+    }
+
+    public void setProduct_weight(Float product_weight) {
+        this.product_weight = product_weight;
+    }
+
+    public Float getProduct_length() {
+        return product_length;
+    }
+
+    public void setProduct_length(Float product_length) {
+        this.product_length = product_length;
+    }
+
+    public Float getProduct_width() {
+        return product_width;
+    }
+
+    public void setProduct_width(Float product_width) {
+        this.product_width = product_width;
+    }
+
+    public Float getProduct_height() {
+        return product_height;
+    }
+
+    public void setProduct_height(Float product_height) {
+        this.product_height = product_height;
+    }
+
+    public String getProduct_combine_code() {
+        return product_combine_code;
+    }
+
+    public void setProduct_combine_code(String product_combine_code) {
+        this.product_combine_code = product_combine_code;
+    }
+
+    public Integer getProduct_combine_num() {
+        return product_combine_num;
+    }
+
+    public void setProduct_combine_num(Integer product_combine_num) {
+        this.product_combine_num = product_combine_num;
+    }
+
+    public String getProduct_bind_code() {
+        return product_bind_code;
+    }
+
+    public void setProduct_bind_code(String product_bind_code) {
+        this.product_bind_code = product_bind_code;
+    }
+
+    public Integer getProduct_line_id() {
+        return product_line_id;
+    }
+
+    public void setProduct_line_id(Integer product_line_id) {
+        this.product_line_id = product_line_id;
+    }
+
+    public String getKeywords() {
+        return keywords;
+    }
+
+    public void setKeywords(String keywords) {
+        this.keywords = keywords;
+    }
+
+    public String getMeasure_info() {
+        return measure_info;
+    }
+
+    public void setMeasure_info(String measure_info) {
+        this.measure_info = measure_info;
+    }
+
+    public Integer getProduct_is_attach() {
+        return product_is_attach;
+    }
+
+    public void setProduct_is_attach(Integer product_is_attach) {
+        this.product_is_attach = product_is_attach;
+    }
+
+    public Integer getProduct_is_bak() {
+        return product_is_bak;
+    }
+
+    public void setProduct_is_bak(Integer product_is_bak) {
+        this.product_is_bak = product_is_bak;
+    }
+
+    public Integer getProduct_bak_type() {
+        return product_bak_type;
+    }
+
+    public void setProduct_bak_type(Integer product_bak_type) {
+        this.product_bak_type = product_bak_type;
+    }
+
+    public Integer getProduct_prearrival_days() {
+        return product_prearrival_days;
+    }
+
+    public void setProduct_prearrival_days(Integer product_prearrival_days) {
+        this.product_prearrival_days = product_prearrival_days;
+    }
+
+    public Integer getProduct_bak_days() {
+        return product_bak_days;
+    }
+
+    public void setProduct_bak_days(Integer product_bak_days) {
+        this.product_bak_days = product_bak_days;
+    }
+
+    public Integer getOriginal_material_type_id() {
+        return original_material_type_id;
+    }
+
+    public void setOriginal_material_type_id(Integer original_material_type_id) {
+        this.original_material_type_id = original_material_type_id;
+    }
+
+    public String getProduct_pack_code() {
+        return product_pack_code;
+    }
+
+    public void setProduct_pack_code(String product_pack_code) {
+        this.product_pack_code = product_pack_code;
+    }
+
+    public String getProduct_package_code() {
+        return product_package_code;
+    }
+
+    public void setProduct_package_code(String product_package_code) {
+        this.product_package_code = product_package_code;
+    }
+
+    public String getProduct_package_material_code() {
+        return product_package_material_code;
+    }
+
+    public void setProduct_package_material_code(String product_package_material_code) {
+        this.product_package_material_code = product_package_material_code;
+    }
+
+    public Integer getProduct_package_max_nums() {
+        return product_package_max_nums;
+    }
+
+    public void setProduct_package_max_nums(Integer product_package_max_nums) {
+        this.product_package_max_nums = product_package_max_nums;
+    }
+
+    public Integer getProduct_is_storage() {
+        return product_is_storage;
+    }
+
+    public void setProduct_is_storage(Integer product_is_storage) {
+        this.product_is_storage = product_is_storage;
+    }
+
+    public Integer getProduct_original_package() {
+        return product_original_package;
+    }
+
+    public void setProduct_original_package(Integer product_original_package) {
+        this.product_original_package = product_original_package;
+    }
+
+    public Integer getProduct_is_new() {
+        return product_is_new;
+    }
+
+    public void setProduct_is_new(Integer product_is_new) {
+        this.product_is_new = product_is_new;
+    }
+
+    public Integer getProduct_is_multi() {
+        return product_is_multi;
+    }
+
+    public void setProduct_is_multi(Integer product_is_multi) {
+        this.product_is_multi = product_is_multi;
+    }
+
+    public Integer getProvider_level_id() {
+        return provider_level_id;
+    }
+
+    public void setProvider_level_id(Integer provider_level_id) {
+        this.provider_level_id = provider_level_id;
+    }
+
+    public String getCreate_user_id() {
+        return create_user_id;
+    }
+
+    public void setCreate_user_id(String create_user_id) {
+        this.create_user_id = create_user_id;
+    }
+
+    public String getCreate_user() {
+        return create_user;
+    }
+
+    public void setCreate_user(String create_user) {
+        this.create_user = create_user;
+    }
+
+    public String getModify_user_id() {
+        return modify_user_id;
+    }
+
+    public void setModify_user_id(String modify_user_id) {
+        this.modify_user_id = modify_user_id;
+    }
+
+    public LocalDateTime getCreate_time() {
+        return create_time;
+    }
+
+    public void setCreate_time(LocalDateTime create_time) {
+        this.create_time = create_time;
+    }
+
+    public LocalDateTime getModify_time() {
+        return modify_time;
+    }
+
+    public void setModify_time(LocalDateTime modify_time) {
+        this.modify_time = modify_time;
+    }
+
+    public String getProduct_cn_link() {
+        return product_cn_link;
+    }
+
+    public void setProduct_cn_link(String product_cn_link) {
+        this.product_cn_link = product_cn_link;
+    }
+
+    public String getProduct_en_link() {
+        return product_en_link;
+    }
+
+    public void setProduct_en_link(String product_en_link) {
+        this.product_en_link = product_en_link;
+    }
+
+    public Integer getSku_mark() {
+        return sku_mark;
+    }
+
+    public void setSku_mark(Integer sku_mark) {
+        this.sku_mark = sku_mark;
+    }
+
+    public String getProduct_to_way_package() {
+        return product_to_way_package;
+    }
+
+    public void setProduct_to_way_package(String product_to_way_package) {
+        this.product_to_way_package = product_to_way_package;
+    }
+
+    public String getStock_reason() {
+        return stock_reason;
+    }
+
+    public void setStock_reason(String stock_reason) {
+        this.stock_reason = stock_reason;
+    }
+
+    public String getProduct_label_proces() {
+        return product_label_proces;
+    }
+
+    public void setProduct_label_proces(String product_label_proces) {
+        this.product_label_proces = product_label_proces;
+    }
+
+    public Float getPack_product_length() {
+        return pack_product_length;
+    }
+
+    public void setPack_product_length(Float pack_product_length) {
+        this.pack_product_length = pack_product_length;
+    }
+
+    public Float getPack_product_width() {
+        return pack_product_width;
+    }
+
+    public void setPack_product_width(Float pack_product_width) {
+        this.pack_product_width = pack_product_width;
+    }
+
+    public Float getPack_product_height() {
+        return pack_product_height;
+    }
+
+    public void setPack_product_height(Float pack_product_height) {
+        this.pack_product_height = pack_product_height;
+    }
+
+    public Float getGross_product_weight() {
+        return gross_product_weight;
+    }
+
+    public void setGross_product_weight(Float gross_product_weight) {
+        this.gross_product_weight = gross_product_weight;
+    }
+
+    public Integer getIs_to_mid() {
+        return is_to_mid;
+    }
+
+    public void setIs_to_mid(Integer is_to_mid) {
+        this.is_to_mid = is_to_mid;
+    }
+
+    public LocalDateTime getTo_mid_time() {
+        return to_mid_time;
+    }
+
+    public void setTo_mid_time(LocalDateTime to_mid_time) {
+        this.to_mid_time = to_mid_time;
+    }
+
+    public Integer getState_type() {
+        return state_type;
+    }
+
+    public void setState_type(Integer state_type) {
+        this.state_type = state_type;
+    }
+
+    public LocalDateTime getChecked_time() {
+        return checked_time;
+    }
+
+    public void setChecked_time(LocalDateTime checked_time) {
+        this.checked_time = checked_time;
+    }
+
+    public String getUploadimgs() {
+        return uploadimgs;
+    }
+
+    public void setUploadimgs(String uploadimgs) {
+        this.uploadimgs = uploadimgs;
+    }
+
+    public String getLabel() {
+        return label;
+    }
+
+    public void setLabel(String label) {
+        this.label = label;
+    }
+
+    public String getBuycomp_note() {
+        return buycomp_note;
+    }
+
+    public void setBuycomp_note(String buycomp_note) {
+        this.buycomp_note = buycomp_note;
+    }
+
+    public String getQuality_note() {
+        return quality_note;
+    }
+
+    public void setQuality_note(String quality_note) {
+        this.quality_note = quality_note;
+    }
+
+    public Integer getHot_rank() {
+        return hot_rank;
+    }
+
+    public void setHot_rank(Integer hot_rank) {
+        this.hot_rank = hot_rank;
+    }
+
+    public Integer getMin_purchase() {
+        return min_purchase;
+    }
+
+    public void setMin_purchase(Integer min_purchase) {
+        this.min_purchase = min_purchase;
+    }
+
+    public Integer getInquirer_id() {
+        return inquirer_id;
+    }
+
+    public void setInquirer_id(Integer inquirer_id) {
+        this.inquirer_id = inquirer_id;
+    }
+
+    public Integer getPurchase_id() {
+        return purchase_id;
+    }
+
+    public void setPurchase_id(Integer purchase_id) {
+        this.purchase_id = purchase_id;
+    }
+
+    public String getAliases_name() {
+        return aliases_name;
+    }
+
+    public void setAliases_name(String aliases_name) {
+        this.aliases_name = aliases_name;
+    }
+
+    public Integer getInstructions() {
+        return instructions;
+    }
+
+    public void setInstructions(Integer instructions) {
+        this.instructions = instructions;
+    }
+
+    public String getQuality_standard() {
+        return quality_standard;
+    }
+
+    public void setQuality_standard(String quality_standard) {
+        this.quality_standard = quality_standard;
+    }
+
+    public Integer getQuality_lable() {
+        return quality_lable;
+    }
+
+    public void setQuality_lable(Integer quality_lable) {
+        this.quality_lable = quality_lable;
+    }
+
+    public String getQuality_remark() {
+        return quality_remark;
+    }
+
+    public void setQuality_remark(String quality_remark) {
+        this.quality_remark = quality_remark;
+    }
+
+    public String getImage_remark() {
+        return image_remark;
+    }
+
+    public void setImage_remark(String image_remark) {
+        this.image_remark = image_remark;
+    }
+
+    public Integer getBuy_sample_type() {
+        return buy_sample_type;
+    }
+
+    public void setBuy_sample_type(Integer buy_sample_type) {
+        this.buy_sample_type = buy_sample_type;
+    }
+
+    public BigDecimal getReference_price() {
+        return reference_price;
+    }
+
+    public void setReference_price(BigDecimal reference_price) {
+        this.reference_price = reference_price;
+    }
+
+    public String getPicking_name() {
+        return picking_name;
+    }
+
+    public void setPicking_name(String picking_name) {
+        this.picking_name = picking_name;
+    }
+
+    public String getPicking_ename() {
+        return picking_ename;
+    }
+
+    public void setPicking_ename(String picking_ename) {
+        this.picking_ename = picking_ename;
+    }
+
+    public String getCustoms_code() {
+        return customs_code;
+    }
+
+    public void setCustoms_code(String customs_code) {
+        this.customs_code = customs_code;
+    }
+
+    public String getDeclare_ename() {
+        return declare_ename;
+    }
+
+    public void setDeclare_ename(String declare_ename) {
+        this.declare_ename = declare_ename;
+    }
+
+    public String getDeclare_cname() {
+        return declare_cname;
+    }
+
+    public void setDeclare_cname(String declare_cname) {
+        this.declare_cname = declare_cname;
+    }
+
+    public BigDecimal getDeclare_price() {
+        return declare_price;
+    }
+
+    public void setDeclare_price(BigDecimal declare_price) {
+        this.declare_price = declare_price;
+    }
+
+    public Float getTariff() {
+        return tariff;
+    }
+
+    public void setTariff(Float tariff) {
+        this.tariff = tariff;
+    }
+
+    public Float getTax_rate() {
+        return tax_rate;
+    }
+
+    public void setTax_rate(Float tax_rate) {
+        this.tax_rate = tax_rate;
+    }
+
+    public String getOnlie_remark() {
+        return onlie_remark;
+    }
+
+    public void setOnlie_remark(String onlie_remark) {
+        this.onlie_remark = onlie_remark;
+    }
+
+    public String getUse_en() {
+        return use_en;
+    }
+
+    public void setUse_en(String use_en) {
+        this.use_en = use_en;
+    }
+
+    public String getUse_cn() {
+        return use_cn;
+    }
+
+    public void setUse_cn(String use_cn) {
+        this.use_cn = use_cn;
+    }
+
+    public String getMaterial_en() {
+        return material_en;
+    }
+
+    public void setMaterial_en(String material_en) {
+        this.material_en = material_en;
+    }
+
+    public String getMaterial_cn() {
+        return material_cn;
+    }
+
+    public void setMaterial_cn(String material_cn) {
+        this.material_cn = material_cn;
+    }
+
+    public String getLogistics_note() {
+        return logistics_note;
+    }
+
+    public void setLogistics_note(String logistics_note) {
+        this.logistics_note = logistics_note;
+    }
+
+    public Integer getSource() {
+        return source;
+    }
+
+    public void setSource(Integer source) {
+        this.source = source;
+    }
+
+    public Integer getDrop_shipping() {
+        return drop_shipping;
+    }
+
+    public void setDrop_shipping(Integer drop_shipping) {
+        this.drop_shipping = drop_shipping;
+    }
+
+    public Integer getDrop_shipping_sku() {
+        return drop_shipping_sku;
+    }
+
+    public void setDrop_shipping_sku(Integer drop_shipping_sku) {
+        this.drop_shipping_sku = drop_shipping_sku;
+    }
+
+    public Integer getProduct_is_combine() {
+        return product_is_combine;
+    }
+
+    public void setProduct_is_combine(Integer product_is_combine) {
+        this.product_is_combine = product_is_combine;
+    }
+
+    public Integer getLogistics_risk() {
+        return logistics_risk;
+    }
+
+    public void setLogistics_risk(Integer logistics_risk) {
+        this.logistics_risk = logistics_risk;
+    }
+
+    public String getCustoms_code2() {
+        return customs_code2;
+    }
+
+    public void setCustoms_code2(String customs_code2) {
+        this.customs_code2 = customs_code2;
+    }
+
+    public String getDeclare_unit() {
+        return declare_unit;
+    }
+
+    public void setDeclare_unit(String declare_unit) {
+        this.declare_unit = declare_unit;
+    }
+
+    public String getExport_ename() {
+        return export_ename;
+    }
+
+    public void setExport_ename(String export_ename) {
+        this.export_ename = export_ename;
+    }
+
+    public String getExport_cname() {
+        return export_cname;
+    }
+
+    public void setExport_cname(String export_cname) {
+        this.export_cname = export_cname;
+    }
+
+    public String getProduct_model() {
+        return product_model;
+    }
+
+    public void setProduct_model(String product_model) {
+        this.product_model = product_model;
+    }
+
+    public String getBrand_name() {
+        return brand_name;
+    }
+
+    public void setBrand_name(String brand_name) {
+        this.brand_name = brand_name;
+    }
+
+    public String getBrand_en_name() {
+        return brand_en_name;
+    }
+
+    public void setBrand_en_name(String brand_en_name) {
+        this.brand_en_name = brand_en_name;
+    }
+
+    public String getSpecifications() {
+        return specifications;
+    }
+
+    public void setSpecifications(String specifications) {
+        this.specifications = specifications;
+    }
+
+    public String getProduct_principle() {
+        return product_principle;
+    }
+
+    public void setProduct_principle(String product_principle) {
+        this.product_principle = product_principle;
+    }
+
+    public Integer getIs_push() {
+        return is_push;
+    }
+
+    public void setIs_push(Integer is_push) {
+        this.is_push = is_push;
+    }
+
+    public String getDeclare() {
+        return declare;
+    }
+
+    public void setDeclare(String declare) {
+        this.declare = declare;
+    }
+
+    public String getWhether_to_do_tax_rebates() {
+        return whether_to_do_tax_rebates;
+    }
+
+    public void setWhether_to_do_tax_rebates(String whether_to_do_tax_rebates) {
+        this.whether_to_do_tax_rebates = whether_to_do_tax_rebates;
+    }
+
+    public String getProvider_company() {
+        return provider_company;
+    }
+
+    public void setProvider_company(String provider_company) {
+        this.provider_company = provider_company;
+    }
+
+    public String getProduct_model_out() {
+        return product_model_out;
+    }
+
+    public void setProduct_model_out(String product_model_out) {
+        this.product_model_out = product_model_out;
+    }
+
+    public Integer getIs_inspection() {
+        return is_inspection;
+    }
+
+    public void setIs_inspection(Integer is_inspection) {
+        this.is_inspection = is_inspection;
+    }
+
+    public Integer getFull_container() {
+        return full_container;
+    }
+
+    public void setFull_container(Integer full_container) {
+        this.full_container = full_container;
+    }
+
+    public Float getFull_container_length() {
+        return full_container_length;
+    }
+
+    public void setFull_container_length(Float full_container_length) {
+        this.full_container_length = full_container_length;
+    }
+
+    public Float getFull_container_width() {
+        return full_container_width;
+    }
+
+    public void setFull_container_width(Float full_container_width) {
+        this.full_container_width = full_container_width;
+    }
+
+    public Float getFull_container_height() {
+        return full_container_height;
+    }
+
+    public void setFull_container_height(Float full_container_height) {
+        this.full_container_height = full_container_height;
+    }
+
+    public Float getNew_price() {
+        return new_price;
+    }
+
+    public void setNew_price(Float new_price) {
+        this.new_price = new_price;
+    }
+
+    public Float getShip_cost() {
+        return ship_cost;
+    }
+
+    public void setShip_cost(Float ship_cost) {
+        this.ship_cost = ship_cost;
+    }
+
+    public Integer getQuality_random() {
+        return quality_random;
+    }
+
+    public void setQuality_random(Integer quality_random) {
+        this.quality_random = quality_random;
+    }
+
+    public Integer getQuality_level() {
+        return quality_level;
+    }
+
+    public void setQuality_level(Integer quality_level) {
+        this.quality_level = quality_level;
+    }
+
+    public Integer getPackage_types() {
+        return package_types;
+    }
+
+    public void setPackage_types(Integer package_types) {
+        this.package_types = package_types;
+    }
+
+    public String getDeclare_factor() {
+        return declare_factor;
+    }
+
+    public void setDeclare_factor(String declare_factor) {
+        this.declare_factor = declare_factor;
+    }
+
+    public String getDeclare_link() {
+        return declare_link;
+    }
+
+    public void setDeclare_link(String declare_link) {
+        this.declare_link = declare_link;
+    }
+
+    public String getIs_priority() {
+        return is_priority;
+    }
+
+    public void setIs_priority(String is_priority) {
+        this.is_priority = is_priority;
+    }
+
+    public Float getComponent() {
+        return component;
+    }
+
+    public void setComponent(Float component) {
+        this.component = component;
+    }
+
+    public String getBuyer() {
+        return buyer;
+    }
+
+    public void setBuyer(String buyer) {
+        this.buyer = buyer;
+    }
+
+    public Integer getProduct_package_code_new() {
+        return product_package_code_new;
+    }
+
+    public void setProduct_package_code_new(Integer product_package_code_new) {
+        this.product_package_code_new = product_package_code_new;
+    }
+
+    public Integer getSeasonal_product() {
+        return seasonal_product;
+    }
+
+    public void setSeasonal_product(Integer seasonal_product) {
+        this.seasonal_product = seasonal_product;
+    }
+
+    public Integer getHoliday_product() {
+        return holiday_product;
+    }
+
+    public void setHoliday_product(Integer holiday_product) {
+        this.holiday_product = holiday_product;
+    }
+
+    public Integer getIs_boutique() {
+        return is_boutique;
+    }
+
+    public void setIs_boutique(Integer is_boutique) {
+        this.is_boutique = is_boutique;
+    }
+
+    public Float getTicketed_point() {
+        return ticketed_point;
+    }
+
+    public void setTicketed_point(Float ticketed_point) {
+        this.ticketed_point = ticketed_point;
+    }
+
+    public Integer getRefere() {
+        return refere;
+    }
+
+    public void setRefere(Integer refere) {
+        this.refere = refere;
+    }
+
+    public String getSale_remark() {
+        return sale_remark;
+    }
+
+    public void setSale_remark(String sale_remark) {
+        this.sale_remark = sale_remark;
+    }
+
+    public Integer getDiscount_rate() {
+        return discount_rate;
+    }
+
+    public void setDiscount_rate(Integer discount_rate) {
+        this.discount_rate = discount_rate;
+    }
+
+    public Integer getProduct_id() {
+        return product_id;
+    }
+
+    public void setProduct_id(Integer product_id) {
+        this.product_id = product_id;
+    }
+}

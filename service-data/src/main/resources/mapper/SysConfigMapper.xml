@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bigfong.cloud.servicedata.mapper.SysConfigMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.bigfong.cloud.servicedata.entity.basic.SysConfig">
+        <id column="id" property="id" />
+        <result column="key_name" property="keyName" />
+        <result column="value" property="value" />
+        <result column="updated_at" property="updatedAt" />
+    </resultMap>
+
+
+
+    <select id="getInfoByKey" resultMap="BaseResultMap">
+        select id,key_name,value,updated_at from sys_config where key_name = #{key} limit 1
+    </select>
+
+    <update id="updateInfo">
+        update sys_config set value = #{value}, updated_at = now() where key_name = #{key}
+    </update>
+</mapper>

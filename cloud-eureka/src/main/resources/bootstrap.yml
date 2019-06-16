@@ -1,0 +1,21 @@
+# 配置端口
+server:
+  port: 8761
+# 配置注册中心服务配置
+eureka:
+  server:
+    enable-self-preservation:  false # 关闭自我保护模式（缺省为启动，比如api提供者关闭了，但是eureka仍然会保留）
+    eviction-interval-timer-in-ms: 10000 # 清理间隔（毫秒，默认 60秒），将有问题的api提供者或app消费者剔除掉
+  instance:
+    hostname: localhost
+    prefer-ip-address: true
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:
+      #设置与Eureka Server交互的地址，查询服务和注册服务都需要依赖这个地址。默认是http://localhost:8761/eureka ；多个地址可使用 , 分隔。
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+# 配置中心命名
+spring:
+  application:
+    name: eureka-server

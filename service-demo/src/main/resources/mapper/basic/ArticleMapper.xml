@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bigfong.cloud.servicedemo.mapper.basic.ArticleMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.bigfong.cloud.servicedemo.entity.basic.Article">
+        <id column="article_id" property="article_id" />
+        <result column="article_user_id" property="article_user_id" />
+        <result column="article_title" property="article_title" />
+        <result column="article_content" property="article_content" />
+        <result column="article_view_count" property="article_view_count" />
+        <result column="article_comment_count" property="article_comment_count" />
+        <result column="article_like_count" property="article_like_count" />
+        <result column="article_is_comment" property="article_is_comment" />
+        <result column="article_status" property="article_status" />
+        <result column="article_order" property="article_order" />
+        <result column="article_update_time" property="article_update_time" />
+        <result column="article_create_time" property="article_create_time" />
+    </resultMap>
+
+
+    <select id="getArticleById"  resultMap="BaseResultMap" >
+        select * from article
+        WHERE
+        article_id = #{_article.article_id}
+    </select>
+</mapper>

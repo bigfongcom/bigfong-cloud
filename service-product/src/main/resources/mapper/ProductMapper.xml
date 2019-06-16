@@ -1,0 +1,943 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bigfong.cloud.serviceproduct.mapper.ProductMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.bigfong.cloud.cloudcommon.product.YibaiProduct">
+        <id column="id" property="id"/>
+        <result column="sku" property="sku"/>
+        <result column="product_category_id" property="productCategoryId"/>
+        <result column="product_linelist_id" property="productLinelistId"/>
+        <result column="product_brand_id" property="productBrandId"/>
+        <result column="product_cost" property="productCost"/>
+        <result column="last_price" property="lastPrice"/>
+        <result column="last_provider_id" property="lastProviderId"/>
+        <result column="provider_type" property="providerType"/>
+        <result column="currency" property="currency"/>
+        <result column="product_status" property="productStatus"/>
+        <result column="product_type" property="productType"/>
+        <result column="product_weight" property="productWeight"/>
+        <result column="product_length" property="productLength"/>
+        <result column="product_width" property="productWidth"/>
+        <result column="product_height" property="productHeight"/>
+        <result column="product_combine_code" property="productCombineCode"/>
+        <result column="product_combine_num" property="productCombineNum"/>
+        <result column="product_bind_code" property="productBindCode"/>
+        <result column="product_line_id" property="productLineId"/>
+        <result column="keywords" property="keywords"/>
+        <result column="measure_info" property="measureInfo"/>
+        <result column="product_is_attach" property="productIsAttach"/>
+        <result column="product_is_bak" property="productIsBak"/>
+        <result column="product_bak_type" property="productBakType"/>
+        <result column="product_prearrival_days" property="productPrearrivalDays"/>
+        <result column="product_bak_days" property="productBakDays"/>
+        <result column="original_material_type_id" property="originalMaterialTypeId"/>
+        <result column="product_pack_code" property="productPackCode"/>
+        <result column="product_package_code" property="productPackageCode"/>
+        <result column="product_package_material_code" property="productPackageMaterialCode"/>
+        <result column="product_package_max_nums" property="productPackageMaxNums"/>
+        <result column="product_is_storage" property="productIsStorage"/>
+        <result column="product_original_package" property="productOriginalPackage"/>
+        <result column="product_is_new" property="productIsNew"/>
+        <result column="product_is_multi" property="productIsMulti"/>
+        <result column="provider_level_id" property="providerLevelId"/>
+        <result column="create_user_id" property="createUserId"/>
+        <result column="modify_user_id" property="modifyUserId"/>
+        <result column="create_time" property="createTime"/>
+        <result column="modify_time" property="modifyTime"/>
+        <result column="product_cn_link" property="productCnLink"/>
+        <result column="product_en_link" property="productEnLink"/>
+        <result column="sku_mark" property="skuMark"/>
+        <result column="product_to_way_package" property="productToWayPackage"/>
+        <result column="stock_reason" property="stockReason"/>
+        <result column="product_label_proces" property="productLabelProces"/>
+        <result column="pack_product_length" property="packProductLength"/>
+        <result column="pack_product_width" property="packProductWidth"/>
+        <result column="pack_product_height" property="packProductHeight"/>
+        <result column="gross_product_weight" property="grossProductWeight"/>
+        <result column="is_to_mid" property="isToMid"/>
+        <result column="to_mid_time" property="toMidTime"/>
+        <result column="state_type" property="stateType"/>
+        <result column="checked_time" property="checkedTime"/>
+        <result column="uploadimgs" property="uploadimgs"/>
+        <result column="label" property="label"/>
+        <result column="buycomp_note" property="buycompNote"/>
+        <result column="quality_note" property="qualityNote"/>
+        <result column="hot_rank" property="hotRank"/>
+        <result column="min_purchase" property="minPurchase"/>
+        <result column="inquirer_id" property="inquirerId"/>
+        <result column="purchase_id" property="purchaseId"/>
+        <result column="aliases_name" property="aliasesName"/>
+        <result column="instructions" property="instructions"/>
+        <result column="quality_standard" property="qualityStandard"/>
+        <result column="quality_lable" property="qualityLable"/>
+        <result column="quality_remark" property="qualityRemark"/>
+        <result column="image_remark" property="imageRemark"/>
+        <result column="buy_sample_type" property="buySampleType"/>
+        <result column="reference_price" property="referencePrice"/>
+        <result column="use_en" property="useEn"/>
+        <result column="use_cn" property="useCn"/>
+        <result column="material_en" property="materialEn"/>
+        <result column="material_cn" property="materialCn"/>
+        <result column="logistics_note" property="logisticsNote"/>
+        <result column="picking_name" property="pickingName"/>
+        <result column="picking_ename" property="pickingEname"/>
+        <result column="customs_code" property="customsCode"/>
+        <result column="declare_ename" property="declareEname"/>
+        <result column="declare_cname" property="declareCname"/>
+        <result column="declare_price" property="declarePrice"/>
+        <result column="tariff" property="tariff"/>
+        <result column="tax_rate" property="taxRate"/>
+        <result column="onlie_remark" property="onlieRemark"/>
+        <result column="source" property="source"/>
+        <result column="drop_shipping" property="dropShipping"/>
+        <result column="drop_shipping_sku" property="dropShippingSku"/>
+        <result column="logistics_risk" property="logisticsRisk"/>
+        <result column="customs_code2" property="customsCode2"/>
+        <result column="declare_unit" property="declareUnit"/>
+        <result column="export_ename" property="exportEname"/>
+        <result column="export_cname" property="exportCname"/>
+        <result column="product_model" property="productModel"/>
+        <result column="specifications" property="specifications"/>
+        <result column="product_principle" property="productPrinciple"/>
+        <result column="is_push" property="isPush"/>
+        <result column="declare" property="declare"/>
+        <result column="product_model_out" property="productModelOut"/>
+        <result column="is_inspection" property="isInspection"/>
+        <result column="finance_code" property="financeCode"/>
+        <result column="full_container" property="fullContainer"/>
+        <result column="full_container_length" property="fullContainerLength"/>
+        <result column="full_container_width" property="fullContainerWidth"/>
+        <result column="full_container_height" property="fullContainerHeight"/>
+        <result column="new_price" property="newPrice"/>
+        <result column="avg_price" property="avgPrice"/>
+        <result column="ship_cost" property="shipCost"/>
+        <result column="quality_random" property="qualityRandom"/>
+        <result column="quality_level" property="qualityLevel"/>
+        <result column="package_types" property="packageTypes"/>
+        <result column="declare_factor" property="declareFactor"/>
+        <result column="declare_link" property="declareLink"/>
+        <result column="component" property="component"/>
+        <result column="logistics_status" property="logisticsStatus"/>
+        <result column="buyer" property="buyer"/>
+        <result column="push_logistics" property="pushLogistics"/>
+        <result column="product_package_code_new" property="productPackageCodeNew"/>
+        <result column="delivery_place" property="deliveryPlace"/>
+        <result column="provider_status" property="providerStatus"/>
+        <result column="photograph_auditing_remark" property="photographAuditingRemark"/>
+        <result column="photograph_edition_remark" property="photographEditionRemark"/>
+        <result column="seasonal_product" property="seasonalProduct"/>
+        <result column="holiday_product" property="holidayProduct"/>
+        <result column="is_ware" property="isWare"/>
+        <result column="is_boutique" property="isBoutique"/>
+        <result column="ticketed_point" property="ticketedPoint"/>
+        <result column="refere" property="refere"/>
+        <result column="sale_type" property="saleType"/>
+        <result column="packing_size_selection" property="packingSizeSelection"/>
+        <result column="sale_remark" property="saleRemark"/>
+        <result column="discount_rate" property="discountRate"/>
+    </resultMap>
+
+    <!-- sql列-->
+    <sql id="columns">
+    product_id,
+	sku,
+	product_category_id,
+	product_linelist_id,
+	product_brand_id,
+	product_cost,
+	last_price,
+	last_provider_id,
+	provider_type,
+	currency,
+	product_status,
+	product_type,
+	product_weight,
+	product_length,
+	product_width,
+	product_height,
+	product_combine_code,
+	product_combine_num,
+	product_bind_code,
+	product_line_id,
+	keywords,
+	measure_info,
+	product_is_attach,
+	product_is_bak,
+	product_bak_type,
+	product_prearrival_days,
+	product_bak_days,
+	original_material_type_id,
+	product_pack_code,
+	product_package_code,
+	product_package_material_code,
+	product_package_max_nums,
+	product_is_storage,
+	product_original_package,
+	product_is_new,
+	product_is_multi,
+	provider_level_id,
+	create_user_id,
+	modify_user_id,
+	create_time,
+	modify_time,
+	product_cn_link,
+	product_en_link,
+	sku_mark,
+	product_to_way_package,
+	stock_reason,
+	product_label_proces,
+	pack_product_length,
+	pack_product_width,
+	pack_product_height,
+	gross_product_weight,
+	is_to_mid,
+	to_mid_time,
+	state_type,
+	checked_time,
+	uploadimgs,
+	label,
+	buycomp_note,
+	quality_note,
+	hot_rank,
+	min_purchase,
+	inquirer_id,
+	purchase_id,
+	aliases_name,
+	instructions,
+	quality_standard,
+	quality_lable,
+	quality_remark,
+	image_remark,
+	buy_sample_type,
+	reference_price,
+	use_en,
+	use_cn,
+	material_en,
+	material_cn,
+	logistics_note,
+	picking_name,
+	picking_ename,
+	customs_code,
+	declare_ename,
+	declare_cname,
+	declare_price,
+	tariff,
+	tax_rate,
+	onlie_remark,
+	source,
+	drop_shipping,
+	drop_shipping_sku,
+	logistics_risk,
+	customs_code2,
+	declare_unit,
+	export_ename,
+	export_cname,
+	product_model,
+	specifications,
+	product_principle,
+    is_push,
+    `declare`,
+    product_model_out,
+    is_inspection,
+    finance_code,
+    full_container,
+    full_container_length,
+    full_container_width,
+    full_container_height,
+    new_price,
+    avg_price,
+    ship_cost,
+    quality_random,
+    quality_level,
+    package_types,
+    declare_factor,
+    declare_link,
+    component,
+    logistics_status,
+    buyer,
+    push_logistics,
+    product_package_code_new,
+    delivery_place,
+    provider_status,
+    photograph_auditing_remark,
+    photograph_edition_remark,
+    seasonal_product,
+    holiday_product,
+    is_ware,
+    is_boutique,
+    ticketed_point,
+    refere,
+    sale_type,
+    packing_size_selection,
+    sale_remark,
+    discount_rate,
+    product_feature
+    </sql>
+
+    <select id="getProductBySku" resultMap="BaseResultMap">
+    SELECT
+	id,
+	product_id,
+	sku,
+	product_category_id,
+	product_linelist_id,
+	product_brand_id,
+	product_cost,
+	last_price,
+	last_provider_id,
+	provider_type,
+	currency,
+	product_status,
+	product_type,
+	product_weight,
+	product_length,
+	product_width,
+	product_height,
+	product_combine_code,
+	product_combine_num,
+	product_bind_code,
+	product_line_id,
+	keywords,
+	measure_info,
+	product_is_attach,
+	product_is_bak,
+	product_bak_type,
+	product_prearrival_days,
+	product_bak_days,
+	original_material_type_id,
+	product_pack_code,
+	product_package_code,
+	product_package_material_code,
+	product_package_max_nums,
+	product_is_storage,
+	product_original_package,
+	product_is_new,
+	product_is_multi,
+	provider_level_id,
+	create_user_id,
+	modify_user_id,
+	create_time,
+	modify_time,
+	product_cn_link,
+	product_en_link,
+	sku_mark,
+	product_to_way_package,
+	stock_reason,
+	product_label_proces,
+	pack_product_length,
+	pack_product_width,
+	pack_product_height,
+	gross_product_weight,
+	is_to_mid,
+	to_mid_time,
+	state_type,
+	checked_time,
+	uploadimgs,
+	label,
+	buycomp_note,
+	quality_note,
+	hot_rank,
+	min_purchase,
+	inquirer_id,
+	purchase_id,
+	aliases_name,
+	instructions,
+	quality_standard,
+	quality_lable,
+	quality_remark,
+	image_remark,
+	buy_sample_type,
+	reference_price,
+	use_en,
+	use_cn,
+	material_en,
+	material_cn,
+	logistics_note,
+	picking_name,
+	picking_ename,
+	customs_code,
+	declare_ename,
+	declare_cname,
+	declare_price,
+	tariff,
+	tax_rate,
+	onlie_remark,
+	source,
+	drop_shipping,
+	drop_shipping_sku,
+	logistics_risk,
+	customs_code2,
+	declare_unit,
+	export_ename,
+	export_cname,
+	product_model,
+	specifications,
+	product_principle,
+    is_push,
+    `declare`,
+    product_model_out,
+    is_inspection,
+    finance_code,
+    full_container,
+    full_container_length,
+    full_container_width,
+    full_container_height,
+    new_price,
+    avg_price,
+    ship_cost,
+    quality_random,
+    quality_level,
+    package_types,
+    declare_factor,
+    declare_link,
+    component,
+    logistics_status,
+    buyer,
+    push_logistics,
+    product_package_code_new,
+    delivery_place,
+    provider_status,
+    photograph_auditing_remark,
+    photograph_edition_remark,
+    seasonal_product,
+    holiday_product,
+    is_ware,
+    is_boutique,
+    ticketed_point,
+    refere,
+    sale_type,
+    packing_size_selection,
+    sale_remark,
+    discount_rate
+    FROM
+	yibai_product
+	where sku=#{sku} limit 1
+    </select>
+
+    <select id="getProductByProductId" resultMap="BaseResultMap">
+    SELECT
+	id,
+	product_id,
+	sku,
+	product_category_id,
+	product_linelist_id,
+	product_brand_id,
+	product_cost,
+	last_price,
+	last_provider_id,
+	provider_type,
+	currency,
+	product_status,
+	product_type,
+	product_weight,
+	product_length,
+	product_width,
+	product_height,
+	product_combine_code,
+	product_combine_num,
+	product_bind_code,
+	product_line_id,
+	keywords,
+	measure_info,
+	product_is_attach,
+	product_is_bak,
+	product_bak_type,
+	product_prearrival_days,
+	product_bak_days,
+	original_material_type_id,
+	product_pack_code,
+	product_package_code,
+	product_package_material_code,
+	product_package_max_nums,
+	product_is_storage,
+	product_original_package,
+	product_is_new,
+	product_is_multi,
+	provider_level_id,
+	create_user_id,
+	modify_user_id,
+	create_time,
+	modify_time,
+	product_cn_link,
+	product_en_link,
+	sku_mark,
+	product_to_way_package,
+	stock_reason,
+	product_label_proces,
+	pack_product_length,
+	pack_product_width,
+	pack_product_height,
+	gross_product_weight,
+	is_to_mid,
+	to_mid_time,
+	state_type,
+	checked_time,
+	uploadimgs,
+	label,
+	buycomp_note,
+	quality_note,
+	hot_rank,
+	min_purchase,
+	inquirer_id,
+	purchase_id,
+	aliases_name,
+	instructions,
+	quality_standard,
+	quality_lable,
+	quality_remark,
+	image_remark,
+	buy_sample_type,
+	reference_price,
+	use_en,
+	use_cn,
+	material_en,
+	material_cn,
+	logistics_note,
+	picking_name,
+	picking_ename,
+	customs_code,
+	declare_ename,
+	declare_cname,
+	declare_price,
+	tariff,
+	tax_rate,
+	onlie_remark,
+	source,
+	drop_shipping,
+	drop_shipping_sku,
+	logistics_risk,
+	customs_code2,
+	declare_unit,
+	export_ename,
+	export_cname,
+	product_model,
+	specifications,
+	product_principle,
+    is_push,
+    `declare`,
+    product_model_out,
+    is_inspection,
+    finance_code,
+    full_container,
+    full_container_length,
+    full_container_width,
+    full_container_height,
+    new_price,
+    avg_price,
+    ship_cost,
+    quality_random,
+    quality_level,
+    package_types,
+    declare_factor,
+    declare_link,
+    component,
+    logistics_status,
+    buyer,
+    push_logistics,
+    product_package_code_new,
+    delivery_place,
+    provider_status,
+    photograph_auditing_remark,
+    photograph_edition_remark,
+    seasonal_product,
+    holiday_product,
+    is_ware,
+    is_boutique,
+    ticketed_point,
+    refere,
+    sale_type,
+    packing_size_selection,
+    sale_remark,
+    discount_rate
+    FROM
+	yibai_product
+	where product_id=#{product_id} limit 1
+    </select>
+
+	<!--批量插入或者更新-->
+	<insert id="batchInsertsOrUpdates" parameterType="java.util.List">
+		insert into yibai_product (
+		<include refid="columns"></include>
+		)
+		values
+		<foreach collection="_ppsList" item="item" index="index" separator=",">
+			(#{item.sku},
+			#{item.productId},
+			#{item.productImgUrl},
+			#{item.productName},
+			#{item.purchaseTypeId},
+			#{item.demandTypeId},
+			#{item.productCategoryId},
+			#{item.productCategoryName},
+			#{item.productLineId},
+			#{item.productLineName},
+			#{item.supplierCode},
+			#{item.supplierName},
+			#{item.transportId},
+			#{item.demandNumber},
+			#{item.purchaseAmount},
+			#{item.purchaseUnitPrice},
+			#{item.purchaseTotalPrice},
+			#{item.buyerId},
+			#{item.buyerName},
+			#{item.developerId},
+			#{item.developerName},
+			#{item.volume},
+			#{item.suggestStatus},
+			#{item.salesNote},
+			#{item.isReject},
+			#{item.rejectId},
+			#{item.interceptStatus},
+			#{item.interceptReason},
+			#{item.purchaseStatus},
+			#{item.purchaseNote},
+			#{item.isTransferWarehouse},
+			#{item.transferWarehouse},
+			#{item.isDrawback},
+			#{item.isIncludeTax},
+			#{item.warehouseCode},
+			#{item.warehouseName},
+			#{item.isPurchase},
+			#{item.purchaseOrderStatus},
+			#{item.pullPlanTime},
+			#{item.planProductArriveTime},
+			#{item.forecastDemandTime},
+			#{item.forecastOrderTime},
+			#{item.createUserName},
+			#{item.createTime},
+			#{item.modifyTime},
+			#{item.modifyUserName}
+			)
+		</foreach>
+		ON DUPLICATE KEY UPDATE
+		product_id=VALUES(product_id),
+		product_img_url=VALUES(product_img_url),
+		product_name=VALUES(product_name),
+		purchase_type_id=VALUES(purchase_type_id),
+		demand_type_id=VALUES(demand_type_id),
+		product_category_id=VALUES(product_category_id),
+		product_category_name=VALUES(product_category_name),
+		product_line_id=VALUES(product_line_id),
+		product_line_name=VALUES(product_line_name),
+		supplier_code=VALUES(supplier_code),
+		supplier_name=VALUES(supplier_name),
+		transport_id=VALUES(transport_id),
+		demand_number=VALUES(demand_number),
+		purchase_amount=VALUES(purchase_amount),
+		purchase_unit_price=VALUES(purchase_unit_price),
+		purchase_total_price=VALUES(purchase_total_price),
+		buyer_id=VALUES(buyer_id),
+		buyer_name=VALUES(buyer_name),
+		developer_id=VALUES(developer_id),
+		developer_name=VALUES(developer_name),
+		volume=VALUES(volume),
+		suggest_status=VALUES(suggest_status),
+		sales_note=VALUES(sales_note),
+		is_reject=VALUES(is_reject),
+		reject_id=VALUES(reject_id),
+		intercept_status=VALUES(intercept_status),
+		intercept_reason=VALUES(intercept_reason),
+		purchase_status=VALUES(purchase_status),
+		purchase_note=VALUES(purchase_note),
+		is_transfer_warehouse=VALUES(is_transfer_warehouse),
+		transfer_warehouse=VALUES(transfer_warehouse),
+		is_drawback=VALUES(is_drawback),
+		is_include_tax=VALUES(is_include_tax),
+		warehouse_code=VALUES(warehouse_code),
+		warehouse_name=VALUES(warehouse_name),
+		is_purchase=VALUES(is_purchase),
+		purchase_order_status=VALUES(purchase_order_status),
+		pull_plan_time=VALUES(pull_plan_time),
+		plan_product_arrive_time=VALUES(plan_product_arrive_time),
+		forecast_demand_time=VALUES(forecast_demand_time),
+		forecast_order_time=VALUES(forecast_order_time),
+		create_user_name=VALUES(create_user_name),
+		create_time=VALUES(create_time),
+		modify_time=VALUES(modify_time),
+		modify_user_name=VALUES(modify_user_name)
+	</insert>
+
+	<!--批量插入或者更新-->
+	<insert id="insertProduct" parameterType="com.bigfong.cloud.cloudcommon.product.YibaiProduct">
+		insert into yibai_product (
+		<include refid="columns"></include>
+		)
+		values
+		(
+		#{item.id},
+		#{item.sku},
+		#{item.productCategoryId},
+		#{item.productLinelistId},
+		#{item.productBrandId},
+		#{item.productCost},
+		#{item.lastPrice},
+		#{item.lastProviderId},
+		#{item.providerType},
+		#{item.currency},
+		#{item.productStatus},
+		#{item.productType},
+		#{item.productWeight},
+		#{item.productLength},
+		#{item.productWidth},
+		#{item.productHeight},
+		#{item.productCombineCode},
+		#{item.productCombineNum},
+		#{item.productBindCode},
+		#{item.productLineId},
+		#{item.keywords},
+		#{item.measureInfo},
+		#{item.productIsAttach},
+		#{item.productIsBak},
+		#{item.productBakType},
+		#{item.productPrearrivalDays},
+		#{item.productBakDays},
+		#{item.originalMaterialTypeId},
+		#{item.productPackCode},
+		#{item.productPackageCode},
+		#{item.productPackageMaterialCode},
+		#{item.productPackageMaxNums},
+		#{item.productIsStorage},
+		#{item.productOriginalPackage},
+		#{item.productIsNew},
+		#{item.productIsMulti},
+		#{item.providerLevelId},
+		#{item.createUserId},
+		#{item.modifyUserId},
+		#{item.createTime},
+		#{item.modifyTime},
+		#{item.productCnLink},
+		#{item.productEnLink},
+		#{item.skuMark},
+		#{item.productToWayPackage},
+		#{item.stockReason},
+		#{item.productLabelProces},
+		#{item.packProductLength},
+		#{item.packProductWidth},
+		#{item.packProductHeight},
+		#{item.grossProductWeight},
+		#{item.isToMid},
+		#{item.toMidTime},
+		#{item.stateType},
+		#{item.checkedTime},
+		#{item.uploadimgs},
+		#{item.label},
+		#{item.buycompNote},
+		#{item.qualityNote},
+		#{item.hotRank},
+		#{item.minPurchase},
+		#{item.inquirerId},
+		#{item.purchaseId},
+		#{item.aliasesName},
+		#{item.instructions},
+		#{item.qualityStandard},
+		#{item.qualityLable},
+		#{item.qualityRemark},
+		#{item.imageRemark},
+		#{item.buySampleType},
+		#{item.referencePrice},
+		#{item.useEn},
+
+		#{item.useCn},
+		#{item.materialEn},
+		#{item.materialCn},
+		#{item.logisticsNote},
+		#{item.pickingName},
+		#{item.pickingEname},
+		#{item.customsCode},
+		#{item.declareEname},
+		#{item.declareCname},
+		#{item.declarePrice},
+		#{item.tariff},
+		#{item.taxRate},
+		#{item.onlieRemark},
+		#{item.source},
+		#{item.dropShipping},
+		#{item.dropShippingSku},
+		#{item.logisticsRisk},
+		#{item.customsCode2},
+		#{item.declareUnit},
+		#{item.exportEname},
+		#{item.exportCname},
+		#{item.productModel},
+		#{item.specifications},
+		#{item.productPrinciple},
+		#{item.isPush},
+		#{item.declare},
+		#{item.productModelOut},
+		#{item.isInspection},
+		#{item.financeCode},
+		#{item.fullContainer},
+		#{item.fullContainerLength},
+		#{item.fullContainerWidth},
+		#{item.fullContainerHeight},
+		#{item.newPrice},
+		#{item.avgPrice},
+		#{item.shipCost},
+		#{item.qualityRandom},
+		#{item.qualityLevel},
+		#{item.packageTypes},
+		#{item.declareFactor},
+		#{item.declareLink},
+		#{item.component},
+		#{item.logisticsStatus},
+		#{item.buyer},
+		#{item.pushLogistics},
+		#{item.productPackageCodeNew},
+		#{item.deliveryPlace},
+		#{item.providerStatus},
+		#{item.photographAuditingRemark},
+		#{item.photographEditionRemark},
+		#{item.seasonalProduct},
+		#{item.holidayProduct},
+		#{item.isWare},
+		#{item.isBoutique},
+		#{item.ticketedPoint},
+		#{item.refere},
+		#{item.saleType},
+		#{item.packingSizeSelection},
+		#{item.saleRemark},
+		#{item.discountRate},
+		#{item.productFeature}
+		)
+	</insert>
+
+	<!--批量插入或者更新-->
+	<update id="updateProduct" parameterType="com.bigfong.cloud.cloudcommon.product.YibaiProduct">
+		update yibai_product set
+		sku = #{item.sku},
+		product_category_id = #{item.productCategoryId},
+		product_linelist_id = #{item.productLinelistId},
+		product_brand_id = #{item.productBrandId},
+		product_cost = #{item.productCost},
+		last_price = #{item.lastPrice},
+		last_provider_id = #{item.lastProviderId},
+		provider_type = #{item.providerType},
+		currency = #{item.currency},
+		product_status = #{item.productStatus},
+		product_type = #{item.productType},
+		product_weight = #{item.productWeight},
+		product_length = #{item.productLength},
+		product_width = #{item.productWidth},
+		product_height = #{item.productHeight},
+		product_combine_code = #{item.productCombineCode},
+		product_combine_num = #{item.productCombineNum},
+		product_bind_code = #{item.productBindCode},
+		product_line_id = #{item.productLineId},
+		keywords = #{item.keywords},
+		measure_info = #{item.measureInfo},
+		product_is_attach = #{item.productIsAttach},
+		product_is_bak = #{item.productIsBak},
+		product_bak_type = #{item.productBakType},
+		product_prearrival_days = #{item.productPrearrivalDays},
+		product_bak_days = #{item.productBakDays},
+		original_material_type_id = #{item.originalMaterialTypeId},
+		product_pack_code = #{item.productPackCode},
+		product_package_code = #{item.productPackageCode},
+		product_package_material_code = #{item.productPackageMaterialCode},
+		product_package_max_nums = #{item.productPackageMaxNums},
+		product_is_storage = #{item.productIsStorage},
+		product_original_package = #{item.productOriginalPackage},
+		product_is_new = #{item.productIsNew},
+		product_is_multi = #{item.productIsMulti},
+		provider_level_id = #{item.providerLevelId},
+		create_user_id = #{item.createUserId},
+		modify_user_id = #{item.modifyUserId},
+		create_time = #{item.createTime},
+		modify_time = #{item.modifyTime},
+		product_cn_link = #{item.productCnLink},
+		product_en_link = #{item.productEnLink},
+		sku_mark = #{item.skuMark},
+		product_to_way_package = #{item.productToWayPackage},
+		stock_reason = #{item.stockReason},
+		product_label_proces = #{item.productLabelProces},
+		pack_product_length = #{item.packProductLength},
+		pack_product_width = #{item.packProductWidth},
+		pack_product_height = #{item.packProductHeight},
+		gross_product_weight = #{item.grossProductWeight},
+		is_to_mid = #{item.isToMid},
+		to_mid_time = #{item.toMidTime},
+		state_type = #{item.stateType},
+		checked_time = #{item.checkedTime},
+		uploadimgs = #{item.uploadimgs},
+		label = #{item.label},
+		buycomp_note = #{item.buycompNote},
+		quality_note = #{item.qualityNote},
+		hot_rank = #{item.hotRank},
+		min_purchase = #{item.minPurchase},
+		inquirer_id = #{item.inquirerId},
+		purchase_id = #{item.purchaseId},
+		aliases_name = #{item.aliasesName},
+		instructions = #{item.instructions},
+		quality_standard = #{item.qualityStandard},
+		quality_lable = #{item.qualityLable},
+		quality_remark = #{item.qualityRemark},
+		image_remark = #{item.imageRemark},
+		buy_sample_type = #{item.buySampleType},
+		reference_price = #{item.referencePrice},
+		use_en = #{item.useEn},
+
+		use_cn = #{item.useCn},
+		material_en = #{item.materialEn},
+		material_cn = #{item.materialCn},
+		logistics_note = #{item.logisticsNote},
+		picking_name = #{item.pickingName},
+		picking_ename = #{item.pickingEname},
+		customs_code = #{item.customsCode},
+		declare_ename = #{item.declareEname},
+		declare_cname = #{item.declareCname},
+		declare_price = #{item.declarePrice},
+		tariff = #{item.tariff},
+		tax_rate = #{item.taxRate},
+		onlie_remark = #{item.onlieRemark},
+		source = #{item.source},
+		drop_shipping = #{item.dropShipping},
+		drop_shipping_sku = #{item.dropShippingSku},
+		logistics_risk = #{item.logisticsRisk},
+		customs_code2 = #{item.customsCode2},
+		declare_unit = #{item.declareUnit},
+		export_ename = #{item.exportEname},
+		export_cname = #{item.exportCname},
+		product_model = #{item.productModel},
+		specifications = #{item.specifications},
+		product_principle = #{item.productPrinciple},
+		is_push = #{item.isPush},
+		`declare` = #{item.declare},
+		product_model_out = #{item.productModelOut},
+		is_inspection = #{item.isInspection},
+		finance_code = #{item.financeCode},
+		full_container = #{item.fullContainer},
+		full_container_length = #{item.fullContainerLength},
+		full_container_width = #{item.fullContainerWidth},
+		full_container_height = #{item.fullContainerHeight},
+		new_price = #{item.newPrice},
+		avg_price = #{item.avgPrice},
+		ship_cost = #{item.shipCost},
+		quality_random = #{item.qualityRandom},
+		quality_level = #{item.qualityLevel},
+		package_types = #{item.packageTypes},
+		declare_factor = #{item.declareFactor},
+		declare_link = #{item.declareLink},
+		component = #{item.component},
+		logistics_status = #{item.logisticsStatus},
+		buyer = #{item.buyer},
+		push_logistics = #{item.pushLogistics},
+		product_package_code_new = #{item.productPackageCodeNew},
+		delivery_place = #{item.deliveryPlace},
+		provider_status = #{item.providerStatus},
+		photograph_auditing_remark = #{item.photographAuditingRemark},
+		photograph_edition_remark = #{item.photographEditionRemark},
+		seasonal_product = #{item.seasonalProduct},
+		holiday_product = #{item.holidayProduct},
+		is_ware = #{item.isWare},
+		is_boutique = #{item.isBoutique},
+		ticketed_point = #{item.ticketedPoint},
+		refere = #{item.refere},
+		sale_type = #{item.saleType},
+		packing_size_selection = #{item.packingSizeSelection},
+		sale_remark = #{item.saleRemark},
+		discount_rate = #{item.discountRate},
+		product_feature = #{item.productFeature}
+		where product_id =  #{item.id}
+	</update>
+</mapper>

@@ -1,0 +1,56 @@
+eureka:
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+
+spring:
+  aop:
+    proxy-target-class: true
+    auto: true
+  servlet:
+    multipart:
+      max-file-size: 3MB
+      max-request-size: 3MB
+  feign:
+    hystrix:
+      enabled: true
+  cloud:
+    config:
+      uri: http://localhost:8888 #配置服务的地址 bootstrap.yml
+      enabled: true #开启配置
+      profile: prod #服务器
+      label: "" #git配置的分支信息，master类似的
+  datasource:
+    druid:
+      # 系统基础库
+      basic:
+        driver-class-name: com.mysql.jdbc.Driver
+        url: jdbc:mysql://127.0.0.1:3306/cloud_demo_data?useUnicode=true&characterEncoding=utf8&allowMultiQueries=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+        username: root
+        password: root
+        initialSize: 5
+        minIdle: 5
+        maxActive: 20
+      # 系统基础库
+      product:
+        driver-class-name: com.mysql.jdbc.Driver
+        url: jdbc:mysql://127.0.0.1:3306/cloud_product?useUnicode=true&characterEncoding=utf8&allowMultiQueries=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+        username: root
+        password: root
+        initialSize: 5
+        minIdle: 5
+        maxActive: 20
+
+redis:
+  shiro:
+    host: 127.0.0.1
+    port: 6379
+    timeout: 0
+    password:
+
+jasypt:
+  encryptor:
+    password: ${jasypt_encryptor_password}
